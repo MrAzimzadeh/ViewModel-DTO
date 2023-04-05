@@ -1,0 +1,7 @@
+﻿@model List<ViewModel_DTO.Models.ViewModels.PersonelListeVM>
+<ul>
+    @foreach (var a in Model)
+    {
+        <li > @a.Name || @a.surName || @a.Pozisyon</li>
+    }
+</ul>

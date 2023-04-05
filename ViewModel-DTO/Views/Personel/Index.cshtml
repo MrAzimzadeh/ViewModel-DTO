@@ -1,0 +1,11 @@
+﻿@model ViewModel_DTO.Models.ViewModels.PersonelCreateVM
+<h1>
+    Personel 
+</h1>
+<form method="post" asp-action="Index" asp-controller="Personel">
+    <input type="text" asp-for="Name"/>
+    <br/>
+    <input type="text" asp-for="surName"/>
+
+    <button class="btn btn-primary">Gonder</button>
+</form>
