@@ -16,7 +16,28 @@ namespace ViewModel_DTO.Models
 
         #region Implicit(gizli , bilincsiz )
 
-        public static implicit operator PersonelCreateVM(Personel model)
+        //public static implicit operator PersonelCreateVM(Personel model)
+        //{
+        //    return new PersonelCreateVM
+        //    {
+        //        Name = model.Name,
+        //        surName = model.surName
+        //    };
+        //}
+        ////Tersine cevirme 
+        //public static implicit operator Personel(PersonelCreateVM model)
+        //{
+        //    return new Personel
+        //    {
+        //        Name = model.Name,
+        //        surName = model.surName
+        //    };
+        //}
+
+        #endregion
+        #region  Explicit(acik ,  bilincli )
+
+        public static explicit operator PersonelCreateVM(Personel model)
         {
             return new PersonelCreateVM
             {
@@ -25,16 +46,14 @@ namespace ViewModel_DTO.Models
             };
         }
         //Tersine cevirme 
-        public static implicit operator Personel(PersonelListeVM model)
+        public static explicit operator Personel(PersonelCreateVM model)
         {
             return new Personel
             {
-                Name = model.Name ,
+                Name = model.Name,
                 surName = model.surName
-            }; 
+            };
         }
-
         #endregion
-
     }
 }

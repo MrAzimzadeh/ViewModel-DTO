@@ -22,11 +22,16 @@ namespace ViewModel_DTO.Controllers
             };
             */
             #endregion Implicit
+            //Personel personel = createVm;
+            //PersonelCreateVM vm = personel;
+            #region
 
-            Personel personel = createVm;
+            #region Explicit
 
-                #region 
+            Personel p = (Personel)createVm;
+            PersonelCreateVM personel = (PersonelCreateVM)p;
 
+            #endregion
 
 
             #endregion
