@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using ViewModel_DTO.Business;
 using ViewModel_DTO.Models;
 using ViewModel_DTO.Models.ViewModels;
@@ -7,6 +8,12 @@ namespace ViewModel_DTO.Controllers
 {
     public class PersonelController : Controller
     {
+        public IMapper Mapper { get; }
+
+        public PersonelController(IMapper mapper)
+        {
+            Mapper = mapper;
+        }
         public IActionResult Index()
         {
             return View();
@@ -22,10 +29,16 @@ namespace ViewModel_DTO.Controllers
                surName = createVm.surName
             };
             */
-            #endregion Implicit
+            #endregion
+
+            #region Implicit
+
+
+
+
             //Personel personel = createVm;
             //PersonelCreateVM vm = personel;
-            #region
+            #endregion
 
             #region Explicit
             //Personel p = (Personel)createVm;
@@ -33,17 +46,21 @@ namespace ViewModel_DTO.Controllers
             #endregion
 
             #region Reflection
-
-            Personel p = TypeConversion.Converion<PersonelCreateVM, Personel>(createVm);
-            PersonelListeVM personelListeVm = TypeConversion.Converion<Personel, PersonelListeVM>(new Personel
-            {
-                Name = "Name112",
-                surName = "surname 2121"
-            });
+            //Personel p = TypeConversion.Converion<PersonelCreateVM, Personel>(createVm);
+            //PersonelListeVM personelListeVm = TypeConversion.Converion<Personel, PersonelListeVM>(new Personel
+            //{
+            //    Name = "Name112",
+            //    surName = "surname 2121"
+            //});
             #endregion
 
+            #region  AoutoMapper
+
+            Personel p = Mapper.Map<Personel>(createVm);
+            PersonelCreateVM vm = Mapper.Map<PersonelCreateVM>(p);
 
             #endregion
+
 
             return View();
         }

@@ -1,8 +1,11 @@
+using ViewModel_DTO.AutoMappers;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
+///Buraaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+builder.Services.AddAutoMapper(typeof(PersonelProfile));   
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
