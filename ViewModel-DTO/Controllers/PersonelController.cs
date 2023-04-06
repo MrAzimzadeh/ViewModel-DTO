@@ -13,12 +13,23 @@ namespace ViewModel_DTO.Controllers
         [HttpPost]
         public IActionResult Index(PersonelCreateVM createVm)
         {
-            // Manulel entity Model e elave etme 
+            #region Amelaus(manuel) donusturme
+            /*
             Personel pesonel = new Personel()
             {
-                Name = createVm.Name,
-                surName = createVm.surName
+               Name = createVm.Name,
+               surName = createVm.surName
             };
+            */
+            #endregion Implicit
+
+            Personel personel = createVm;
+
+                #region 
+
+
+
+            #endregion
 
             return View();
         }
