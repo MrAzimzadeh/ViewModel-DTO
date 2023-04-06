@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using ViewModel_DTO.Business;
 using ViewModel_DTO.Models;
 using ViewModel_DTO.Models.ViewModels;
 
@@ -27,10 +28,18 @@ namespace ViewModel_DTO.Controllers
             #region
 
             #region Explicit
+            //Personel p = (Personel)createVm;
+            //PersonelCreateVM personel = (PersonelCreateVM)p;
+            #endregion
 
-            Personel p = (Personel)createVm;
-            PersonelCreateVM personel = (PersonelCreateVM)p;
+            #region Reflection
 
+            Personel p = TypeConversion.Converion<PersonelCreateVM, Personel>(createVm);
+            PersonelListeVM personelListeVm = TypeConversion.Converion<Personel, PersonelListeVM>(new Personel
+            {
+                Name = "Name112",
+                surName = "surname 2121"
+            });
             #endregion
 
 
