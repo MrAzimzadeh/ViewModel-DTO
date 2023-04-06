@@ -13,7 +13,13 @@ namespace ViewModel_DTO.Controllers
         [HttpPost]
         public IActionResult Index(PersonelCreateVM createVm)
         {
-            // ....
+            // Manulel entity Model e elave etme 
+            Personel pesonel = new Personel()
+            {
+                Name = createVm.Name,
+                surName = createVm.surName
+            };
+
             return View();
         }
 
@@ -35,5 +41,14 @@ namespace ViewModel_DTO.Controllers
             }).ToList();
             return View(personels);
         }
+
+        public IActionResult Get()
+        {
+            return View();
+        }
+
+
+
     }
+
 }
